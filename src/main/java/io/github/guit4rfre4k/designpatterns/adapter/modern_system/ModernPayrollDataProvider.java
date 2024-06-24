@@ -1,7 +1,5 @@
 package io.github.guit4rfre4k.designpatterns.adapter.modern_system;
 
-import io.github.guit4rfre4k.designpatterns.adapter.modern_system.ModernPayrollData;
-
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
