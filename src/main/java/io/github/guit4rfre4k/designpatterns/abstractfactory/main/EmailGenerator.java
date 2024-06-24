@@ -1,16 +1,23 @@
 package io.github.guit4rfre4k.designpatterns.abstractfactory.main;
 
-import java.io.*;
+import io.github.guit4rfre4k.designpatterns.abstractfactory.factory.AbstractEmailPartsFactory;
+import io.github.guit4rfre4k.designpatterns.abstractfactory.model.Email;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Paths;
 
-import io.github.guit4rfre4k.designpatterns.abstractfactory.factory.AbstractEmailPartsFactory;
-import io.github.guit4rfre4k.designpatterns.abstractfactory.model.Email;
+public class EmailGenerator {
 
-public class Client {
+    private EmailGenerator() {
+        // do not create instances
+    }
 
-    public Email generateEmail(AbstractEmailPartsFactory emailComposerFactory, URL fileURL) {
+    public static Email generateEmail(AbstractEmailPartsFactory emailComposerFactory, URL fileURL) {
         String emailContent = getContentFromFile(fileURL);
         String emailGreeting = emailComposerFactory.getGreeting();
         String emailEnding = emailComposerFactory.getEnding();
@@ -19,8 +26,8 @@ public class Client {
         return new Email(emailGreeting, emailContent, emailEnding, emailSignature);
     }
 
-    private String getContentFromFile(URL fileUrl) {
 
+    private static String getContentFromFile(URL fileUrl) {
 
         StringBuilder sb = new StringBuilder();
         try {

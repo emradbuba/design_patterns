@@ -2,15 +2,13 @@ package io.github.guit4rfre4k.designpatterns.abstractfactory.utils;
 
 import io.github.guit4rfre4k.designpatterns.abstractfactory.model.Email;
 
-public class EmailPrinter {
+public final class EmailPrinter {
 
-    private final Email email;
-
-    public EmailPrinter(Email email) {
-        this.email = email;
+    private EmailPrinter() {
+        //no instances
     }
 
-    public void printEmail(){
+    public static void printEmail(Email email){
         StringBuilder builder = new StringBuilder(email.getGreeting())
                 .append("\n\n")
                 .append(email.getContent())
